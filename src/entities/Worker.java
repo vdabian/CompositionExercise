@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import entities.enums.workerLevel;
+import entities.enums.WorkerLevel;
 
 public class Worker {
 
 	private String name;
-	private workerLevel level;
+	private WorkerLevel level;
 	private Double baseSalary;
 	private Departament departament;
 	private List<HourContract> contracts = new ArrayList<>();
@@ -22,11 +22,11 @@ public class Worker {
 		this.name = name;
 	}
 
-	public workerLevel getLevel() {
+	public WorkerLevel getLevel() {
 		return level;
 	}
 
-	public void setLevel(workerLevel level) {
+	public void setLevel(WorkerLevel level) {
 		this.level = level;
 	}
 
@@ -54,7 +54,7 @@ public class Worker {
 		
 	}
 
-	public Worker(String name, workerLevel level, Double baseSalary, Departament departament) {
+	public Worker(String name, WorkerLevel level, Double baseSalary, Departament departament) {
 		this.name = name;
 		this.level = level;
 		this.baseSalary = baseSalary;
@@ -69,7 +69,7 @@ public class Worker {
 		contracts.remove(contract);
 	}
 	
-	public void income(int year, int month) {
+	public double income(int year, int month) {
 		double sum = baseSalary;
 		Calendar cal = Calendar.getInstance();
 		for (HourContract c : contracts) {
@@ -80,6 +80,7 @@ public class Worker {
 				sum += c.TotalValue();
 			}
 		}
+		return sum;
 		
 	}
 	

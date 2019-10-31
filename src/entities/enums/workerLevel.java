@@ -1,6 +1,6 @@
 package entities.enums;
 
-public enum workerLevel {
+public enum WorkerLevel {
 
 	JUNIOR,
 	MD_LEVEL,
